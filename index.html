@@ -88,9 +88,23 @@
       display: none;
     }
     @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
+  body {
+    flex-direction: row;
+  }
+  .sidebar {
+    width: 150px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .catalog {
+    padding: 20px 10px;
+  }
+}
       .sidebar {
         width: 100%;
         height: auto;
