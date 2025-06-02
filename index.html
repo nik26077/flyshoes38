@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>FlyShoes38 – Каталог</title>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -16,36 +16,30 @@
       background-color: #fdfdfd;
       color: #111;
       display: flex;
+      flex-direction: column;
       min-height: 100vh;
     }
-    .sidebar {
-      width: 200px;
+    .category-bar {
       background-color: #111;
-      color: #fff;
-      padding: 30px 20px;
+      padding: 15px 10px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
     }
-    .sidebar h2 {
-      font-size: 20px;
-      margin-bottom: 20px;
-    }
-    .sidebar button {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
+    .category-bar button {
       background: #4CAF50;
       border: none;
       color: white;
-      font-size: 14px;
+      padding: 10px 20px;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 14px;
     }
-    .sidebar button.active {
+    .category-bar button.active {
       background: #45a049;
     }
     .catalog {
-      flex: 1;
-      padding: 30px 20px;
+      padding: 20px;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 20px;
@@ -62,7 +56,7 @@
     }
     .card img {
       width: 100%;
-      max-height: 200px;
+      max-height: 180px;
       object-fit: cover;
       border-radius: 8px;
       margin-bottom: 10px;
@@ -81,19 +75,10 @@
     .hidden {
       display: none;
     }
-    @media (max-width: 768px) {
-      .catalog {
-        grid-template-columns: 1fr;
-      }
-      .sidebar {
-        display: none;
-      }
-    }
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <h2>Категории</h2>
+  <div class="category-bar">
     <button class="filter-btn active" data-category="men">Мужчинам</button>
     <button class="filter-btn" data-category="women">Женщинам</button>
   </div>
