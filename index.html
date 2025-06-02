@@ -19,14 +19,17 @@
       flex-direction: column;
       min-height: 100vh;
     }
-    .category-bar {
+    .sticky-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       background-color: #111;
       padding: 15px 10px;
       display: flex;
       justify-content: center;
       gap: 10px;
     }
-    .category-bar button {
+    .sticky-bar button {
       background: #4CAF50;
       border: none;
       color: white;
@@ -35,7 +38,7 @@
       cursor: pointer;
       font-size: 14px;
     }
-    .category-bar button.active {
+    .sticky-bar button.active {
       background: #45a049;
     }
     .catalog {
@@ -78,7 +81,7 @@
   </style>
 </head>
 <body>
-  <div class="category-bar">
+  <div class="sticky-bar">
     <button class="filter-btn active" data-category="men">Мужчинам</button>
     <button class="filter-btn" data-category="women">Женщинам</button>
   </div>
