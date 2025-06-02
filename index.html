@@ -22,32 +22,38 @@
       overflow-x: hidden;
     }
     .sidebar {
-      width: 220px;
+      width: 120px;
       background-color: #111;
-      padding: 20px 15px;
+      padding: 20px 10px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      align-items: center;
+      gap: 20px;
       position: fixed;
       top: 0;
       left: 0;
       bottom: 0;
       z-index: 1000;
     }
+    .sidebar img {
+      width: 80px;
+      height: auto;
+    }
     .sidebar button {
+      width: 100%;
       background: #4CAF50;
       border: none;
       color: white;
-      padding: 10px 15px;
+      padding: 10px 5px;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 13px;
     }
     .sidebar button.active {
       background: #45a049;
     }
     .catalog {
-      margin-left: 220px;
+      margin-left: 120px;
       flex: 1;
       padding: 30px;
       display: grid;
@@ -111,6 +117,7 @@
 </head>
 <body>
   <div class="sidebar">
+    <img src="img/logo_flyshoes38.png" alt="FlyShoes38 logo">
     <button class="filter-btn active" data-category="men">Мужчинам</button>
     <button class="filter-btn" data-category="women">Женщинам</button>
   </div>
