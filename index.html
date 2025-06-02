@@ -23,9 +23,12 @@
       flex-direction: column;
       align-items: center;
       gap: 15px;
-      position: sticky;
+      position: fixed;
       top: 0;
+      bottom: 0;
+      left: 0;
       height: 100vh;
+      z-index: 1000;
     }
     .sidebar img { width: 60px; height: auto; }
     .sidebar button {
@@ -40,6 +43,7 @@
     }
     .sidebar button.active { background: #45a049; }
     .catalog {
+      margin-left: 100px;
       width: 100%;
       padding: 20px;
       display: grid;
@@ -52,7 +56,11 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       padding: 10px;
     }
-    .card h3 { font-size: 14px; margin-bottom: 6px; }
+    .card h3 {
+      font-size: 14px;
+      margin-bottom: 6px;
+      text-align: center;
+    }
     .swiper {
       width: 100%;
       height: 120px;
@@ -67,8 +75,8 @@
       max-height: 140px;
     }
     .order-button {
-      display: inline-block;
-      margin-top: 8px;
+      display: block;
+      margin: 10px auto 0 auto;
       padding: 6px 10px;
       background-color: #4CAF50;
       color: #fff;
@@ -79,10 +87,26 @@
     }
     .hidden { display: none; }
     @media (max-width: 768px) {
-      body {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
-      }
+  body {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: auto;
+  }
+  .sidebar {
+    flex-direction: column;
+    width: 100px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    z-index: 1000;
+  }
+  .catalog {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px 10px;
+  }
+}
       .sidebar {
         flex-direction: row;
         width: 100%;
@@ -111,9 +135,9 @@
         </div>
       </div>
       <h3>Adidas Campus Grey</h3>
-      <p>Цена: 4990 ₽</p>
-      <p>Размеры: 41-44</p>
-      <p>Описание: Удобные и стильные кроссовки модели Adidas Campus Grey. Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 4990 ₽</p>
+      <p><strong>Размеры:</strong> 41-44</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели Adidas Campus Grey. Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -125,9 +149,9 @@
         </div>
       </div>
       <h3>Adidas Responce CL </h3>
-      <p>Цена: 6290 ₽</p>
-      <p>Размеры: 41-44</p>
-      <p>Описание: Удобные и стильные кроссовки модели Adidas Responce CL . Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 6290 ₽</p>
+      <p><strong>Размеры:</strong> 41-44</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели Adidas Responce CL . Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -139,9 +163,9 @@
         </div>
       </div>
       <h3>Adidas Yezzy Boost 350 White </h3>
-      <p>Цена: 5890 ₽</p>
-      <p>Размеры: 41-44</p>
-      <p>Описание: Удобные и стильные кроссовки модели Adidas Yezzy Boost 350 White . Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 5890 ₽</p>
+      <p><strong>Размеры:</strong> 41-44</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели Adidas Yezzy Boost 350 White . Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -153,9 +177,9 @@
         </div>
       </div>
       <h3>Asics Gel Kahana 8 </h3>
-      <p>Цена: 5890 ₽</p>
-      <p>Размеры: 41-44</p>
-      <p>Описание: Удобные и стильные кроссовки модели Asics Gel Kahana 8 . Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 5890 ₽</p>
+      <p><strong>Размеры:</strong> 41-44</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели Asics Gel Kahana 8 . Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -167,9 +191,9 @@
         </div>
       </div>
       <h3>Asics Gel NYC </h3>
-      <p>Цена: 5790 ₽</p>
-      <p>Размеры: 41-44</p>
-      <p>Описание: Удобные и стильные кроссовки модели Asics Gel NYC . Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 5790 ₽</p>
+      <p><strong>Размеры:</strong> 41-44</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели Asics Gel NYC . Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -177,13 +201,13 @@
     <div class="card" data-category="men">
       <div class="swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="img/new_balance_1906а__m_1.jpg" alt="Фото"></div>
+          <div class="swiper-slide"><img src="img/new_balance_1906a_m_1.jpg" alt="Фото"></div>
         </div>
       </div>
       <h3>New Balance 1906А </h3>
-      <p>Цена: 6690 ₽</p>
-      <p>Размеры: 41-44</p>
-      <p>Описание: Удобные и стильные кроссовки модели New Balance 1906А . Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 6690 ₽</p>
+      <p><strong>Размеры:</strong> 41-44</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели New Balance 1906А . Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -195,9 +219,9 @@
         </div>
       </div>
       <h3>New Balance 9060</h3>
-      <p>Цена: 6490 ₽</p>
-      <p>Размеры: 41-44</p>
-      <p>Описание: Удобные и стильные кроссовки модели New Balance 9060. Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 6490 ₽</p>
+      <p><strong>Размеры:</strong> 41-44</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели New Balance 9060. Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -209,9 +233,9 @@
         </div>
       </div>
       <h3>Nike Dunk SB Grey </h3>
-      <p>Цена: 5790 ₽</p>
-      <p>Размеры: 41-44</p>
-      <p>Описание: Удобные и стильные кроссовки модели Nike Dunk SB Grey . Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 5790 ₽</p>
+      <p><strong>Размеры:</strong> 41-44</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели Nike Dunk SB Grey . Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -219,13 +243,13 @@
     <div class="card" data-category="men">
       <div class="swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="img/nike_p_6000_m_1.jpg" alt="Фото"></div>
+          <div class="swiper-slide"><img src="img/nike_p6000_m_1.jpg" alt="Фото"></div>
         </div>
       </div>
       <h3>Nike P-6000 </h3>
-      <p>Цена: 6490 ₽</p>
-      <p>Размеры: 41-44</p>
-      <p>Описание: Удобные и стильные кроссовки модели Nike P-6000 . Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 6490 ₽</p>
+      <p><strong>Размеры:</strong> 41-44</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели Nike P-6000 . Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -237,9 +261,9 @@
         </div>
       </div>
       <h3>Nike Stussy </h3>
-      <p>Цена: 5790 ₽</p>
-      <p>Размеры: 41-44</p>
-      <p>Описание: Удобные и стильные кроссовки модели Nike Stussy . Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 5790 ₽</p>
+      <p><strong>Размеры:</strong> 41-44</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели Nike Stussy . Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -251,9 +275,9 @@
         </div>
       </div>
       <h3>Adidas Campus Бежевые</h3>
-      <p>Цена: 5390 ₽</p>
-      <p>Размеры:37-41 </p>
-      <p>Описание: Удобные и стильные кроссовки модели Adidas Campus Бежевые. Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 5390 ₽</p>
+      <p><strong>Размеры:</strong>37-41 </p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели Adidas Campus Бежевые. Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -265,9 +289,9 @@
         </div>
       </div>
       <h3>Adidas Forum </h3>
-      <p>Цена: 5890 ₽</p>
-      <p>Размеры: 37-41</p>
-      <p>Описание: Удобные и стильные кроссовки модели Adidas Forum . Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 5890 ₽</p>
+      <p><strong>Размеры:</strong> 37-41</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели Adidas Forum . Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -279,9 +303,9 @@
         </div>
       </div>
       <h3>Adidas Jogger </h3>
-      <p>Цена: 4290 ₽</p>
-      <p>Размеры: 37-41</p>
-      <p>Описание: Удобные и стильные кроссовки модели Adidas Jogger . Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 4290 ₽</p>
+      <p><strong>Размеры:</strong> 37-41</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели Adidas Jogger . Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -293,9 +317,9 @@
         </div>
       </div>
       <h3>Asics Gel Kahana 8 </h3>
-      <p>Цена: 5890 ₽</p>
-      <p>Размеры: 37-41</p>
-      <p>Описание: Удобные и стильные кроссовки модели Asics Gel Kahana 8 . Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 5890 ₽</p>
+      <p><strong>Размеры:</strong> 37-41</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели Asics Gel Kahana 8 . Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -307,9 +331,9 @@
         </div>
       </div>
       <h3>Asics Gel NYC </h3>
-      <p>Цена: 6290 ₽</p>
-      <p>Размеры: 37-41</p>
-      <p>Описание: Удобные и стильные кроссовки модели Asics Gel NYC . Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 6290 ₽</p>
+      <p><strong>Размеры:</strong> 37-41</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели Asics Gel NYC . Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -321,9 +345,9 @@
         </div>
       </div>
       <h3>New Balance 530 </h3>
-      <p>Цена: 5390 ₽</p>
-      <p>Размеры: 37-41</p>
-      <p>Описание: Удобные и стильные кроссовки модели New Balance 530 . Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 5390 ₽</p>
+      <p><strong>Размеры:</strong> 37-41</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели New Balance 530 . Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -335,9 +359,9 @@
         </div>
       </div>
       <h3>New Balance 9060</h3>
-      <p>Цена: 6690 ₽</p>
-      <p>Размеры: 37-41</p>
-      <p>Описание: Удобные и стильные кроссовки модели New Balance 9060. Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 6690 ₽</p>
+      <p><strong>Размеры:</strong> 37-41</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели New Balance 9060. Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -349,9 +373,9 @@
         </div>
       </div>
       <h3>Nike Air Force Luxe</h3>
-      <p>Цена: 5390 ₽</p>
-      <p>Размеры: 37-41</p>
-      <p>Описание: Удобные и стильные кроссовки модели Nike Air Force Luxe. Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 5390 ₽</p>
+      <p><strong>Размеры:</strong> 37-41</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели Nike Air Force Luxe. Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
@@ -363,9 +387,9 @@
         </div>
       </div>
       <h3>Nike Dunk SB Pink</h3>
-      <p>Цена: 5390 ₽</p>
-      <p>Размеры: 37-41</p>
-      <p>Описание: Удобные и стильные кроссовки модели Nike Dunk SB Pink. Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 5390 ₽</p>
+      <p><strong>Размеры:</strong> 37-41</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели Nike Dunk SB Pink. Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
    
@@ -376,9 +400,9 @@
         </div>
       </div>
       <h3>Nike Jordan Aqua</h3>
-      <p>Цена: 5390 ₽</p>
-      <p>Размеры: 37-41</p>
-      <p>Описание: Удобные и стильные кроссовки модели Nike Jordan Aqua. Отлично подойдут для повседневного образа.</p>
+      <p><strong>Цена:</strong> 5390 ₽</p>
+      <p><strong>Размеры:</strong> 37-41</p>
+      <p><strong>Описание:</strong> Удобные и стильные кроссовки модели Nike Jordan Aqua. Отлично подойдут для повседневного образа.</p>
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     
