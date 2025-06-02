@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FlyShoes38 – Каталог</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: #fdfdfd;
+      color: #111;
+      display: flex;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 200px;
+      background-color: #111;
+      color: #fff;
+      padding: 30px 20px;
+    }
+    .sidebar h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .sidebar button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      background: #4CAF50;
+      border: none;
+      color: white;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .sidebar button.active {
+      background: #45a049;
+    }
+    .catalog {
+      flex: 1;
+      padding: 30px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      width: calc(50% - 20px);
+    }
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .hidden {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .card {
+        width: 100%;
+      }
+      .sidebar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Категории</h2>
+    <button class="filter-btn active" data-category="men">Мужчинам</button>
+    <button class="filter-btn" data-category="women">Женщинам</button>
+  </div>
+  <div class="catalog" id="catalog">
+    <div class="card" data-category="men">
+      <h3>Пример мужской модели</h3>
+      <p>Описание мужской пары кроссовок</p>
+    </div>
+    <div class="card" data-category="women">
+      <h3>Пример женской модели</h3>
+      <p>Описание женской пары кроссовок</p>
+    </div>
+  </div>
+  <script>
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const category = btn.getAttribute('data-category');
+        cards.forEach(card => {
+          if (card.getAttribute('data-category') === category) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // По умолчанию показать только мужские товары
+    window.addEventListener('DOMContentLoaded', () => {
+      cards.forEach(card => {
+        if (card.getAttribute('data-category') !== 'men') {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
