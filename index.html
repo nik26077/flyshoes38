@@ -15,19 +15,21 @@
       font-family: 'Jost', sans-serif;
       background-color: #fdfdfd;
       color: #111;
-      display: flex;
-      flex-direction: column;
       min-height: 100vh;
+      padding-top: 90px;
     }
     .sticky-bar {
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 100;
+      left: 0;
+      right: 0;
+      z-index: 9999;
       background-color: #111;
       padding: 15px 10px;
       display: flex;
       justify-content: center;
       gap: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
     .sticky-bar button {
       background: #4CAF50;
