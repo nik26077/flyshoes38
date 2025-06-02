@@ -46,17 +46,15 @@
     .catalog {
       flex: 1;
       padding: 30px 20px;
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 20px;
-      justify-content: flex-start;
     }
     .card {
       background: white;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       padding: 15px;
-      width: calc(50% - 20px);
     }
     .card h3 {
       font-size: 18px;
@@ -82,8 +80,8 @@
       display: none;
     }
     @media (max-width: 768px) {
-      .card {
-        width: 100%;
+      .catalog {
+        grid-template-columns: 1fr;
       }
       .sidebar {
         display: none;
