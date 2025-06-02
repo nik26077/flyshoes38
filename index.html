@@ -15,36 +15,35 @@
       font-family: 'Jost', sans-serif;
       background-color: #fdfdfd;
       color: #111;
-      min-height: 100vh;
-      padding-top: 90px;
-    }
-    .sticky-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 9999;
-      background-color: #111;
-      padding: 15px 10px;
       display: flex;
-      justify-content: center;
-      gap: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      min-height: 100vh;
     }
-    .sticky-bar button {
+    .sidebar {
+      width: 220px;
+      background-color: #111;
+      padding: 20px 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+    .sidebar button {
       background: #4CAF50;
       border: none;
       color: white;
-      padding: 10px 20px;
+      padding: 10px 15px;
       border-radius: 5px;
       cursor: pointer;
       font-size: 14px;
     }
-    .sticky-bar button.active {
+    .sidebar button.active {
       background: #45a049;
     }
     .catalog {
-      padding: 20px;
+      flex: 1;
+      padding: 30px;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 20px;
@@ -59,12 +58,20 @@
       font-size: 18px;
       margin-bottom: 8px;
     }
-    .card img {
-      width: 100%;
-      max-height: 180px;
-      object-fit: cover;
+    .carousel {
+      position: relative;
+      overflow: hidden;
       border-radius: 8px;
       margin-bottom: 10px;
+    }
+    .carousel img {
+      width: 100%;
+      display: none;
+      max-height: 180px;
+      object-fit: cover;
+    }
+    .carousel img.active {
+      display: block;
     }
     .order-button {
       display: inline-block;
@@ -80,18 +87,32 @@
     .hidden {
       display: none;
     }
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        position: static;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="sticky-bar">
+  <div class="sidebar">
     <button class="filter-btn active" data-category="men">Мужчинам</button>
     <button class="filter-btn" data-category="women">Женщинам</button>
   </div>
   <div class="catalog" id="catalog">
     <div class="card" data-category="men">
-      <img src="img/adidas_campus_grey_m_1.jpg" alt="Фото 1">
-      <img src="img/adidas_campus_grey_m_2.jpg" alt="Фото 2">
-      <img src="img/adidas_campus_grey_m_3.jpg" alt="Фото 3">
+      <div class="carousel">
+        <img src="img/adidas_campus_grey_m_1.jpg" class="active" alt="Фото 1">
+        <img src="img/adidas_campus_grey_m_2.jpg" alt="Фото 2">
+        <img src="img/adidas_campus_grey_m_3.jpg" alt="Фото 3">
+      </div>
       <h3>Adidas Campus Grey</h3>
       <p>Цена: 4990 ₽</p>
       <p>Размеры: 41–44</p>
@@ -99,9 +120,11 @@
       <a href="https://t.me/lolopio777" class="order-button">Заказать</a>
     </div>
     <div class="card" data-category="women">
-      <img src="img/adidas_campus_бежевые_w_1.jpg" alt="Фото 1">
-      <img src="img/adidas_campus_бежевые_w_2.jpg" alt="Фото 2">
-      <img src="img/adidas_campus_бежевые_w_3.jpg" alt="Фото 3">
+      <div class="carousel">
+        <img src="img/adidas_campus_бежевые_w_1.jpg" class="active" alt="Фото 1">
+        <img src="img/adidas_campus_бежевые_w_2.jpg" alt="Фото 2">
+        <img src="img/adidas_campus_бежевые_w_3.jpg" alt="Фото 3">
+      </div>
       <h3>Adidas Campus Бежевые</h3>
       <p>Цена: 5390 ₽</p>
       <p>Размеры: 37–41</p>
@@ -110,6 +133,7 @@
     </div>
   </div>
   <script>
+    // Фильтрация
     const buttons = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.card');
     buttons.forEach(btn => {
@@ -127,11 +151,23 @@
       });
     });
 
+    // По умолчанию показываем только "men"
     window.addEventListener('DOMContentLoaded', () => {
       cards.forEach(card => {
         if (card.getAttribute('data-category') !== 'men') {
           card.classList.add('hidden');
         }
+      });
+
+      // Карусель
+      document.querySelectorAll('.carousel').forEach(carousel => {
+        const images = carousel.querySelectorAll('img');
+        let index = 0;
+        setInterval(() => {
+          images[index].classList.remove('active');
+          index = (index + 1) % images.length;
+          images[index].classList.add('active');
+        }, 2500);
       });
     });
   </script>
