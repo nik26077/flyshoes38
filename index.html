@@ -12,8 +12,8 @@
       font-family: 'Jost', sans-serif;
       background-color: #fdfdfd;
       color: #111;
-      display: grid;
-      grid-template-columns: 100px 1fr;
+      display: flex;
+      flex-direction: row;
       min-height: 100vh;
     }
     .sidebar {
@@ -88,10 +88,23 @@
     .hidden { display: none; }
     @media (max-width: 768px) {
   body {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    grid-template-rows: auto;
+    flex-direction: column;
   }
+  .sidebar {
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .catalog {
+    margin-left: 0;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px 10px;
+  }
+}
   .sidebar {
     flex-direction: column;
     width: 100px;
